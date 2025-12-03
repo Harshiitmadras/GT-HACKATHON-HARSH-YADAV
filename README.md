@@ -32,7 +32,59 @@ I built the **Auto Insight Engine**, an event-driven system where you simply dro
 
 ## 3. Technical Approach
 
+
+
 **System Architecture:**
+GT-HACKATHON-HARSH-YADAV/
+│
+├─ README.md                  # Final TrendSpotter-style README (with your GitHub URL)
+├─ .env.example               # API keys (LLM, SMTP) template
+│
+├─ backend/
+│   ├─ app.py                 # FastAPI backend
+│   ├─ requirements.txt       # Dependencies (Polars, scikit-learn, Plotly, WeasyPrint, LLM SDKs)
+│   ├─ controllers/
+│   │   └─ report_controller.py  # API endpoints
+│   ├─ models/
+│   │   └─ report_models.py      # Pydantic schemas
+│   ├─ services/
+│   │   ├─ ingestion.py          # CSV / SQL / JSON ingestion
+│   │   ├─ pii_masking.py        # Automatic masking of emails, phones, IDs
+│   │   ├─ analysis.py           # Polars + Isolation Forest
+│   │   ├─ ai_summary.py         # LLM prompt wrapper + validation
+│   │   └─ report_generator.py   # PDF & PPTX report creation
+│   └─ utils/
+│       └─ helpers.py            # Shared functions
+│
+├─ frontend/
+│   ├─ package.json
+│   ├─ next.config.js
+│   ├─ pages/
+│   │   ├─ index.js              # File upload / report trigger
+│   │   └─ api/generate.js       # Calls backend API
+│   └─ components/
+│       └─ FileUploader.jsx      # CSV upload component
+│
+├─ templates/
+│   └─ base.pptx                 # Branded PowerPoint template
+│
+├─ data/
+│   ├─ raw/                      # Original Olist dataset CSVs
+│   │   ├─ orders.csv
+│   │   ├─ order_items.csv
+│   │   ├─ products.csv
+│   │   ├─ customers.csv
+│   │   ├─ geolocation.csv
+│   │   ├─ order_payments.csv
+│   │   └─ order_reviews.csv
+│   └─ input/                    # Event-driven ingestion folder
+│       └─ olist_augmented.csv   # Merged + augmented CSV with foot_traffic, ad_clicks, weather
+│
+├─ docker-compose.yml
+├─ Dockerfile
+└─ scripts/
+    └─ run_pipeline.sh           # Shell script to test pipeline locally
+
 
 - **Ingestion (Event-Driven):** Python `watchdog` script listens for new files in real-time.  
 - **Data Processing:** Polars is used instead of Pandas for faster, memory-efficient operations with strict schema validation.  
