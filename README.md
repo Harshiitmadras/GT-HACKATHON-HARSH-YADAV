@@ -37,39 +37,33 @@ I built the **Auto Insight Engine**, an event-driven system where you simply dro
 **System Architecture:**
 GT-HACKATHON-HARSH-YADAV/
 │
-├─ README.md                  # Final TrendSpotter-style README (with your GitHub URL)
-├─ .env.example               # API keys (LLM, SMTP) template
+├─ README.md                  # Comprehensive hackathon README
+├─ .env.example               # Template for API keys (LLM, SMTP)
 │
 ├─ backend/
 │   ├─ app.py                 # FastAPI backend
-│   ├─ requirements.txt       # Dependencies (Polars, scikit-learn, Plotly, WeasyPrint, LLM SDKs)
-│   ├─ controllers/
-│   │   └─ report_controller.py  # API endpoints
-│   ├─ models/
-│   │   └─ report_models.py      # Pydantic schemas
+│   ├─ requirements.txt       # Python dependencies
+│   ├─ controllers/report_controller.py
+│   ├─ models/report_models.py
 │   ├─ services/
-│   │   ├─ ingestion.py          # CSV / SQL / JSON ingestion
-│   │   ├─ pii_masking.py        # Automatic masking of emails, phones, IDs
-│   │   ├─ analysis.py           # Polars + Isolation Forest
-│   │   ├─ ai_summary.py         # LLM prompt wrapper + validation
-│   │   └─ report_generator.py   # PDF & PPTX report creation
-│   └─ utils/
-│       └─ helpers.py            # Shared functions
+│   │   ├─ ingestion.py
+│   │   ├─ pii_masking.py
+│   │   ├─ analysis.py
+│   │   ├─ ai_summary.py
+│   │   └─ report_generator.py
+│   └─ utils/helpers.py
 │
 ├─ frontend/
 │   ├─ package.json
 │   ├─ next.config.js
-│   ├─ pages/
-│   │   ├─ index.js              # File upload / report trigger
-│   │   └─ api/generate.js       # Calls backend API
-│   └─ components/
-│       └─ FileUploader.jsx      # CSV upload component
+│   ├─ pages/index.js
+│   ├─ pages/api/generate.js
+│   └─ components/FileUploader.jsx
 │
-├─ templates/
-│   └─ base.pptx                 # Branded PowerPoint template
+├─ templates/base.pptx        # Branded PowerPoint template
 │
 ├─ data/
-│   ├─ raw/                      # Original Olist dataset CSVs
+│   ├─ raw/                   # Original Olist CSVs
 │   │   ├─ orders.csv
 │   │   ├─ order_items.csv
 │   │   ├─ products.csv
@@ -77,13 +71,14 @@ GT-HACKATHON-HARSH-YADAV/
 │   │   ├─ geolocation.csv
 │   │   ├─ order_payments.csv
 │   │   └─ order_reviews.csv
-│   └─ input/                    # Event-driven ingestion folder
-│       └─ olist_augmented.csv   # Merged + augmented CSV with foot_traffic, ad_clicks, weather
+│   └─ input/                 # Event-driven ingestion folder
+│       └─ olist_augmented.csv
 │
 ├─ docker-compose.yml
 ├─ Dockerfile
-└─ scripts/
-    └─ run_pipeline.sh           # Shell script to test pipeline locally
+└─ scripts/run_pipeline.sh    # Script to trigger pipeline locally
+
+
 
 
 - **Ingestion (Event-Driven):** Python `watchdog` script listens for new files in real-time.  
