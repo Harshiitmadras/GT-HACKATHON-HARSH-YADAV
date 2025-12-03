@@ -7,7 +7,7 @@
 ## 1. The Problem (Real World Scenario)
 
 **Context:**  
-In the AdTech world, we generate terabytes of data daily—foot traffic logs, ad clickstreams, and weather reports. Currently, Account Managers manually download CSVs and take screenshots to create “Weekly Performance Reports.”
+In the AdTech world, we generate terabytes of data daily foot traffic logs, ad clickstreams, and weather reports. Currently, Account Managers manually download CSVs and take screenshots to create “Weekly Performance Reports.”
 
 **The Pain Point:**  
 This process is slow, error-prone, and boring. Delays in reporting mean clients may not know about campaign issues for days, potentially wasting budget.
